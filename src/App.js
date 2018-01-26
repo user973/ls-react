@@ -1,44 +1,36 @@
 import React, { Component } from 'react';
+import NewsPost from './NewsPost';
 
 export default class App extends Component {
 
     state = {
-        posts: [
-            'some article 1',
-            'some article 2',
-            'some article 3',
-            'some article 4',
-            'some article 5'
-        ],
-        value: ''
+        news: [],
+        newsInput: ''
     };
 
     handleChange = event => {
-        this.setState({value: event.target.value});
+        this.setState({ newsInput: event.target.value });
     };
 
-    handleClick = () => {
-        const { posts, value } = this.state;
-        if (value) {
-            this.setState({
-                posts: [...posts, value],
-                value: ''
-            });
-        }
+    handleNewPost = () => {
+        const { news, newsInput } = this.state;
+        this.setState({
+            news: [...news, {text: newsInput}],
+            newsInput: ''
+        });
     };
 
     render() {
 
-        const NewPost = props => <p> {props.text} </p>
-        const { posts, value } = this.state;
+        const { news, newsInput } = this.state;
 
         return (
             <div className='App'>
-                <input onChange={this.handleChange} value={value} />
-                <button onClick={this.handleClick}>Добавить</button>
+                <input onChange={this.handleChange} value={newsInput} />
+                <button onClick={this.handleNewPost}>Добавить</button>
                 {
-                    posts.map((item, index) => {
-                        return <NewPost key={item+index} text={item} />
+                    news.map((item, index) => {
+                        return <NewsPost key={item.text+index} text={item.text} />
                     })
                 }
             </div>

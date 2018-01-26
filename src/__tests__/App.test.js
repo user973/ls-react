@@ -41,6 +41,7 @@ describe('App component', () => {
       const wrapper = shallow(<App />);
       wrapper.find('input').simulate('change', {target: {value: 10}});
       wrapper.update();
+      console.log('>>>>', wrapper.state());
       expect(wrapper.state().newsInput).toEqual(10);
     });
     it('create new post from value state.newsInput via click on button', () => {
