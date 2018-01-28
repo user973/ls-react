@@ -82,12 +82,12 @@ describe('Компонент Step', () => {
         it('Если isClickable=true, должен вызываться метод onClick переданный через props c аргументом равным number переданным через props', () => {
           const onClickMock = jest.fn();
           const wrapper = shallow(
-            <Step number={999} onClick={onClickMock} isClickable>
+            <Step number={1} onClick={onClickMock} isClickable>
               test string
             </Step>
           );
           wrapper.instance().handleClick();
-          expect(onClickMock).toBeCalledWith(999);
+          expect(onClickMock).toBeCalledWith(1);
         });
       });
     });
