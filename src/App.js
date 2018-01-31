@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import './App.css';
-import Switcher from './Switcher';
-import CardNumberHolder from './CardNumberHolder';
-import ModalButton from './ModalButton';
-import VideoPlayer from './VideoPlayer';
+import Switcher from './Switcher/Switcher';
+import CardNumberHolder from './CardNumberHolder/CardNumberHolder';
+import ModalButton from './ModalButton/ModalButton';
+import VideoPlayer from './VideoPlayer/VideoPlayer';
 
 class App extends Component {
   render() {

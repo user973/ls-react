@@ -15,7 +15,7 @@ describe('Компонент Switcher', () => {
   );
 
   wrapper.update();
-
+  
   describe('state', () => {
     it('По-умолчанию state содержит ключ selectedChild = 0', () => {
       expect(wrapper.state().selectedChild).toBeDefined();
