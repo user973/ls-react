@@ -39,7 +39,7 @@ describe('homework', () => {
           .get('button')
           .contains('Play')
           .click();
-        cy.wait(300);
+        cy.wait(1300);
         cy.get('video').then($tag => {
           expect($tag[0].paused).to.eq(false);
           expect($tag[0].ended).to.eq(false);
@@ -51,7 +51,7 @@ describe('homework', () => {
           .get('button')
           .contains('Play')
           .click();
-        cy.wait(300);
+        cy.wait(1300);
         cy
           .get('button')
           .contains('Stop')

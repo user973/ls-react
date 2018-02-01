@@ -1,0 +1,6 @@
+[0201/193716.975:ERROR:process_info.cc(118)] ReadProcessMemory bool __cdecl crashpad::`anonymous-namespace'::ReadStruct<struct crashpad::process_types::RTL_USER_PROCESS_PARAMETERS<struct crashpad::process_types::internal::Traits64>>(void *,unsigned __int64,struct crashpad::process_types::RTL_USER_PROCESS_PARAMETERS<struct crashpad::process_types::internal::Traits64> *): Запрос ReadProcessMemory или WriteProcessMemory был выполнен только частично. (0x12B)
+[0201/193716.992:ERROR:process_info.cc(566)] ReadProcessData failed
+[0201/193716.992:ERROR:process_reader_win.cc(242)] ReadMemory at 0x7fee78b5720 of 12 bytes failed: Запрос ReadProcessMemory или WriteProcessMemory был выполнен только частично. (0x12B)
+[0201/193716.992:WARNING:process_snapshot_win.cc(72)] ReadMemory ExceptionInformation failed
+[0201/193716.992:WARNING:crash_report_exception_handler.cc(62)] ProcessSnapshotWin::Initialize failed
+[0201/193716.993:ERROR:scoped_process_suspend.cc(39)] NtResumeProcess: Попытка доступа к процессу, выполняющему процедуру завершения.  (0xc000010a)

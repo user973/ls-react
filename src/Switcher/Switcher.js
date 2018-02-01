@@ -23,6 +23,7 @@ class Switcher extends Component {
                     <ul className='component-list'>
                         {
                             children.map((item, index) => {
+                                console.log(item);
                                 return (
                                   <li className='component-list__name' key={index} onClick={this.handleChangeChild} data-id={index}>
                                     {item.type.displayName || item.type.name}
