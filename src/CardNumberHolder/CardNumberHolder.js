@@ -10,14 +10,14 @@ class CardNumberHolder extends Component {
   handleChange = (e) => {
     let {target:{value}} = e;
     this.setState({
-        cardNumber: CardNumberInput.normalize(value)
+        cardNumber: this.refs.input.normalize(value)
     });
   };
 
   render() {
     const {cardNumber} = this.state;
     return (
-      <CardNumberInput cardNumber={cardNumber} onChange={this.handleChange} />
+      <CardNumberInput cardNumber={cardNumber} onChange={this.handleChange} ref='input' />
     );
   }
 }

@@ -20,7 +20,7 @@ class CardNumberInput extends Component {
     }).join('') : '';
   };
 
-  static normalize(cardNumber='') {
+  normalize = (cardNumber='') => {
     const valid = (typeof cardNumber === 'string' || typeof cardNumber === 'number');
     return valid ? cardNumber.toString().split('').map((x, i) => {
       if (x === ' ') {
