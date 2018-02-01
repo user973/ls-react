@@ -8,9 +8,9 @@ class CardNumberHolder extends Component {
   };
   
   handleChange = (e) => {
-    const {target:{value}} = e;
+    let {target:{value}} = e;
     this.setState({
-        cardNumber: value
+        cardNumber: CardNumberInput.normalize(value)
     });
   };
 

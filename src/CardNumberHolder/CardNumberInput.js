@@ -12,7 +12,7 @@ class CardNumberInput extends Component {
   format = (cardNumber='') => {
     const valid = (typeof cardNumber === 'string' || typeof cardNumber === 'number');
     return valid ? cardNumber.toString().split('').map((x, i) => {
-      if (i%4 === 3) {
+      if (i%4 === 3 && i !== cardNumber.length - 1) {
         return x + ' ';
       } else {
         return x;
@@ -20,7 +20,7 @@ class CardNumberInput extends Component {
     }).join('') : '';
   };
 
-  normalize = (cardNumber='') => {
+  static normalize(cardNumber='') {
     const valid = (typeof cardNumber === 'string' || typeof cardNumber === 'number');
     return valid ? cardNumber.toString().split('').map((x, i) => {
       if (x === ' ') {
@@ -40,9 +40,10 @@ class CardNumberInput extends Component {
   }
 
   render() {
-    const {onChange, cardNumber} = this.props;
+    const {onChange} = this.props;
+    const {number} = this.state;
     return (
-      <input type='text' value={cardNumber} onChange={onChange} />
+      <input type='text' value={number} onChange={onChange} />
     );
   }
 }
