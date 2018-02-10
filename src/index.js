@@ -4,8 +4,8 @@ import './index.css';
 import App from './components/App';
 import {Provider} from 'react-redux';
 import createStore from './store';
-
-const store = createStore();
+import {rootReducer} from './reducers';
+const store = createStore(rootReducer);
 
 ReactDOM.render(
   <Provider store={store}>
