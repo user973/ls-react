@@ -10,7 +10,7 @@
     "react-scripts": "1.0.17",
     "redux": "^3.7.2",
     "redux-actions": "^2.2.1",
-    "styled-components": "^2.2.3"
+    "styled-components": "^3.1.6"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -22,8 +22,8 @@
   },
   "devDependencies": {
     "cypress": "^1.4.1",
-    "eslint-plugin-cypress": "^2.0.1",
     "enzyme": "^3.2.0",
-    "enzyme-adapter-react-16": "^1.1.0"
+    "enzyme-adapter-react-16": "^1.1.0",
+    "eslint-plugin-cypress": "^2.0.1"
   }
 }
