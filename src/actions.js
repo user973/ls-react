@@ -1,6 +1,13 @@
 import {createActions} from 'redux-actions';
 
-const actionCreators = createActions({
+export const {
+  searchRequest,
+  searchSuccess,
+  searchFailure,
+  showsRequest,
+  showsSuccess,
+  showsFailure
+} = createActions({
   
   SEARCH_REQUEST: payload => payload,
   SEARCH_SUCCESS: payload => payload,
@@ -11,5 +18,3 @@ const actionCreators = createActions({
   SHOWS_FAILURE: undefined,
   
 });
-
-export {actionCreators};

@@ -1,13 +1,16 @@
 import {search} from '../api';
-import {actionCreators} from '../actions'
+import {
+  searchRequest,
+  searchSuccess
+} from '../actions'
 
 
 export const searchMiddleware = store => next => action => {
   const result = next(action);
-  if (action.type === actionCreators.searchRequest.toString()) {
+  if (action.type === searchRequest.toString()) {
     search(action.payload)
     .then(response => {
-      store.dispatch(actionCreators.searchSuccess(response));
+      store.dispatch(searchSuccess(response));
     });
   }
   return result;

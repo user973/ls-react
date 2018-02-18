@@ -1,6 +1,10 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {actionCreators} from '../actions';
+import {
+  showsRequest,
+  showsSuccess,
+  showsFailure
+} from '../actions';
 import styled from 'styled-components';
 import {getShows} from '../reducers/shows';
 
@@ -56,9 +60,9 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch =>  ({
-  fetchRequest: (payload) => dispatch(actionCreators.showsRequest(payload)),
-  fetchSuccess: (payload) => dispatch(actionCreators.showsSuccess(payload)),
-  fetchFailure: (payload) => dispatch(actionCreators.showsFailure(payload))
+  fetchRequest: (payload) => dispatch(showsRequest(payload)),
+  fetchSuccess: (payload) => dispatch(showsSuccess(payload)),
+  fetchFailure: (payload) => dispatch(showsFailure(payload))
 });
 
 export default connect(

@@ -1,6 +1,10 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {actionCreators} from '../actions';
+import {
+  searchRequest,
+  searchSuccess,
+  searchFailure
+} from '../actions';
 import styled from 'styled-components';
 import {getSearch} from '../reducers/search';
 
@@ -86,9 +90,9 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch =>  ({
-  fetchRequest: (payload) => dispatch(actionCreators.searchRequest(payload)),
-  fetchSuccess: (payload) => dispatch(actionCreators.searchSuccess(payload)),
-  fetchFailure: (payload) => dispatch(actionCreators.searchFailure(payload))
+  fetchRequest: (payload) => dispatch(searchRequest(payload)),
+  fetchSuccess: (payload) => dispatch(searchSuccess(payload)),
+  fetchFailure: (payload) => dispatch(searchFailure(payload))
 });
 
 export default connect(
