@@ -73,13 +73,13 @@ export class Followers extends PureComponent {
     render() {
         
         const {
-            followers: {response, isFetching},
+            followers: {response, isFetching}
         } = this.props;
         
         
         if (isFetching) return <Spinner size="64px" color="fuchsia" gap={5} />;
         if (response === null) return null;
-        
+
         return (            
             <FollowersContainer>
                 {

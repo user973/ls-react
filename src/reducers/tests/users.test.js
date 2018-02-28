@@ -11,22 +11,67 @@ import {
     usersSuccess,
     usersFailure
 } from '../../actions/users';
+import {
+    authRequest,
+    authSuccess,
+    authFailure
+} from '../../actions/auth';
 
-describe('reducer users', () => {
-    
-    it('1+2===3', () => {
-        expect(1+2).toBe(3);
+describe('reducer users', () => {  
+
+    it('экшен authRequest изменяет флаг isFetching', () => {
+        let state = {isFetching: false}
+        const next = users(state, authRequest());
+        expect(next.isFetching).toEqual(true);
+    });
+
+    it('экшен authSuccess изменяет флаг isFetching', () => {
+        let state = {isFetching: true}
+        const next = users(state, authSuccess());
+        expect(next.isFetching).toEqual(false);
+    });
+
+    it('экшен authFailure изменяет флаг isFetching', () => {
+        let state = {isFetching: true}
+        const next = users(state, authFailure());
+        expect(next.isFetching).toEqual(false);
+    });
+        
+    it('очищает поле data, если приходит экшен authRequest', () => {
+        let state = {data: "some_data"}
+        const next = users(state, authRequest());
+        expect(next.data).toBeNull();
+    });
+
+    it('наполняет данными data, если приходит экшен authSuccess', () => {
+        let state = {data: null}
+        const payload = "some_data";
+        const next = users(state, authSuccess(payload));
+        expect(next.data).not.toBeNull();
+        expect(next.data).toEqual(payload);
     });
     
-    // it('экшены fetchUserRequest, fetchUserSuccess, fetchUserFailure', () => {
-    //     const next = users(undefined, usersRequest());
-    //     expect(next.isFetching).toBeFalsy();
-    //     //expect(next.isFetching).toBeTruthly();
-    // });
-    
-    // it('экшены fetchUserSuccess', () => { 
-    //     const next = users(undefined, usersSuccess());
-    //     //expect(next.isFetching).toBeFalsy();
-    //     expect(next.isFetching).toBeTruthly();
-    // });
+    it('очищает поле error, если приходит экшен authRequest', () => {
+        let state = {error: "error"}
+        const next = users(state, authRequest());
+        expect(next.error).toBeNull();
+        expect(next.error).not.toEqual(state.error);
+    });
+
+    it('очищает поле error, если приходит экшен authSuccess', () => {
+        let state = {error: "error"}
+        const payload = "new_error";
+        const next = users(state, authSuccess(payload));
+        expect(next.error).toBeNull();
+        expect(next.error).not.toEqual(state.error);
+    });
+
+    it('наполняет данными error, если приходит экшен authFailure', () => {
+        let state = {error: null}
+        const payload = "new_error";
+        const next = users(state, authFailure(payload));
+        expect(next.error).not.toBeNull();
+        expect(next.error).toEqual(payload);
+    });
+
 });

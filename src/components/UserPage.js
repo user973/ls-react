@@ -102,8 +102,8 @@ export class UserPage extends Component {
                         <UserImage src={data.avatar_url} alt={data.login} />
                     </UserImgContainer>
                     <UserInfoContainer>
-                        <h3>{data.login}</h3>
-                        <p>{`Followers: ${data.followers}`}</p>
+                        <h3 className='login'>{data.login}</h3>
+                        <p className='followers'>{`Followers: ${data.followers}`}</p>
                         <p>{`Public repos: ${data.public_repos}`}</p>
                     </UserInfoContainer>
                 </UserContainer>
